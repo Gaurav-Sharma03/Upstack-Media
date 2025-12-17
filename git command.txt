@@ -1,43 +1,9 @@
-| Command               | Description                         |
-| --------------------- | ----------------------------------- |
-| `git init`            | Initialize a new Git repository     |
-| `git clone <url>`     | Copy a remote repository to local   |
-| `git status`          | Show current file and branch status |
-| `git add .`           | Stage all changed files             |
-| `git add file.txt`    | Stage a specific file               |
-| `git commit -m "msg"` | Save staged changes with a message  |
-| `git log`             | View commit history                 |
-| `git diff`            | Show changes not yet staged         |
+ git checkout -b development//checkout main branch and -b create nnew branch
 
+git checkout master//checkout the branch and move to master branch
+git branch -m new-branch-name//Rename the current branch
+ git branch -d branch-name//delete the branch
+ git branch//to check branches
 
-| Command                           | Description                    |
-| --------------------------------- | ------------------------------ |
-| `git remote -v`                   | Show remote repository URL     |
-| `git pull`                        | Fetch and merge remote changes |
-| `git push`                        | Push changes to remote         |
-| `git push -u origin branch`       | Push & set upstream branch     |
-| `git push origin --delete branch` | Delete remote branch           |
-
-
-| Command                         | Description                      |
-| ------------------------------- | -------------------------------- |
-| `git restore file.txt`          | Undo file changes                |
-| `git restore --staged file.txt` | Unstage a file                   |
-| `git reset --soft HEAD~1`       | Undo last commit (keep changes)  |
-| `git reset --hard HEAD~1`       | Remove last commit completely    |
-| `git revert commit-id`          | Undo commit safely (recommended) |
-
-
-| Command          | Description            |
-| ---------------- | ---------------------- |
-| `git stash`      | Save work temporarily  |
-| `git stash pop`  | Apply and remove stash |
-| `git stash list` | View saved stashes     |
-
-
-MUST-REMEMBER DAILY WORKFLOW
-git status
-git add .
-git commit -m "your message"
-git pull
-git push
+ git push -u origin master
+ git push -u origin development 
