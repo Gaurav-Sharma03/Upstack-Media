@@ -1,3 +1,4 @@
  git checkout -b development//checkout main branch and -b create nnew branch
- 
- git 
+
+ git push -u origin master
+ git push -u origin development 
