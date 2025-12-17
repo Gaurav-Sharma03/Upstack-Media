@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>  
+<head>
+    <title></title>
+</head>
+<body>
+ 
+  
+
+<script>
+let json = '{ "name":"John","age": 30}'; // data from the server
+
+let user = JSON.parse(json); // convert the text representation to JS object
+try{
+   
+    if(!user.name){
+        throw new SyntaxError("incomplete data : no name");
+    }
+    else{
+        console.log(user.name);
+    }
+}
+catch(err){
+    console.log("Error=>",err);
+}
+finally{
+    console.log("code executed Sucessfully");
+}
+
+</script>
+
+</body>
+</html>

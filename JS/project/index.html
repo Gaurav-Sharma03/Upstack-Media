@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <title>Content Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="overlay"></div>
+
+<!-- SIDEBAR -->
+<div class="content-sidebar" id="sidebar">
+    <div class="heading-left">
+        <h1>ContentPlan</h1>
+    </div>
+
+    <div class="content-paragraph"><p>Navigation</p></div>
+
+    <div class="content-menu">
+        <ul>
+            <li><img src="assets/icon/dashboard.png"> Dashboard</li>
+            <li><img src="assets/icon/calendar.png"> Calendar</li>
+            <li><img src="assets/icon/page (3).png"> All Posts</li>
+            <li><img src="assets/icon/column.png"> Analytics</li>
+        </ul>
+    </div>
+
+    <div class="content-menu-footer">
+        <ul>
+            <li><i class="fa-solid fa-users"></i> Team</li>
+            <li><i class="fa-solid fa-gear"></i> Settings</li>
+        </ul>
+    </div>
+</div>
+
+<div class="sidebarmainicon">
+    <div class="sidebaricon" id="sidebaricon"></div>
+</div>
+
+
+<!-- HEADER -->
+<div class="content-header" id="main">
+    <div class="header-left">
+        <h1>Content Planner</h1>
+        <p>Manage and schedule your social media content</p>
+    </div>
+
+    <div class="header-right">
+        <div class="view-switch">
+            <button class="switch-btn " id="openCalendarBtn"><i class="fa-solid fa-calendar-days"></i> Calendar</button>
+            <button class="switch-btn active" id="openGridBtn"><i class="fa-solid fa-table-cells"></i> Grid</button>
+        </div>
+        <button class="create-btn" id="create-post">
+            <i class="fa-solid fa-plus"></i> Create Post
+        </button>
+    </div>
+</div>
+
+
+
+
+<!-- =============== TAB SYSTEM =============== -->
+
+<!-- GRID TAB (default visible) -->
+<div id="gridView">
+
+    <div class="main-content">
+
+        <div class="main-card">
+
+            <div class="card-box total-posts">
+                <div class="card-info">
+                    <h3>Total Posts</h3>
+                    <h1>6</h1>
+                </div>
+                <img src="assets/icon/page (1).png">
+            </div>
+
+            <div class="card-box drafts">
+                <div class="card-info">
+                    <h3>Drafts</h3>
+                    <h1>2</h1>
+                </div>
+                <img src="assets/icon/clock.png">
+            </div>
+
+            <div class="card-box scheduled">
+                <div class="card-info">
+                    <h3>Scheduled</h3>
+                    <h1>2</h1>
+                </div>
+                <img src="assets/icon/calendar (1).png">
+            </div>
+
+            <div class="card-box published">
+                <div class="card-info">
+                    <h3>Published</h3>
+                    <h1>2</h1>
+                </div>
+                <img src="assets/icon/check-mark.png">
+            </div>
+
+        </div>
+
+        <div class="content-card-post">
+
+            <div class="published-post">
+                <img src="assets/images/laptop.jpg">
+                <div class="social-media"><img src="assets/icon/twitter.png"><h1>...</h1></div>
+                <p>“Just launched our new product feature! Check it out 🚀”</p>
+                <div class="more-detail">
+                    <h3 class="published">Published</h3>
+                    <p><img src="assets/icon/clock.png"> Mar 15, 2024</p>
+                </div>
+            </div>
+
+            <div class="published-post">
+                <img src="assets/images/twitter.jpg">
+                <div class="social-media"><img src="assets/icon/instagram.png"><h1>...</h1></div>
+                <p>“Behind the scenes of our latest campaign.”</p>
+                <div class="more-detail">
+                    <h3 class="schedule">Scheduled</h3>
+                    <p><img src="assets/icon/clock.png"> Mar 18, 2024</p>
+                </div>
+            </div>
+
+            <div class="published-post">
+                <div class="social-media"><img src="assets/icon/linkedin.png"><h1>...</h1></div>
+                <p>“Excited to announce our partnership!”</p>
+                <div class="more-detail">
+                    <h3 class="schedule">Scheduled</h3>
+                    <p><img src="assets/icon/clock.png"> Mar 20, 2024</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- CALENDAR TAB (hidden by default) -->
+<div id="calendarView" style="display:none; padding:20px;">
+    <div id="calendar"></div>
+</div>
+<div id="eventPopup" class="event-popup">
+    <div class="event-popup-content">
+        <span id="closeEventPopup">&times;</span>
+        <h3>Events on Selected Date</h3>
+        <div id="eventDetails"></div>
+    </div>
+</div>
+
+
+
+<!-- FULLCALENDAR -->
+<script src="/assets/fullcalendar-6.1.19/dist/index.global.min.js"></script>
+
+
+<!-- POPUP (unchanged) -->
+<div id="create-post-popup" class="popup-overlay">
+    <div class="popup-box create-form">
+
+        <div class="popup-header">
+            <h2>Create New Post</h2>
+            <span id="close-create-popup" class="close-btn">&times;</span>
+        </div>
+
+        <form id="new-post-form">
+
+            <label class="form-label">Platform *</label>
+            <div class="input-field">
+                <select required>
+                    <option value="">Select a platform</option>
+                    <option>Facebook</option>
+                    <option>Instagram</option>
+                    <option>Twitter</option>
+                </select>
+            </div>
+
+            <label class="form-label">Content *</label>
+            <textarea class="textarea" id="textarea" placeholder="What's on your mind?" required></textarea>
+            <p class="textarea-span">0 characters</p>
+
+            <label class="form-label">Schedule Date (Optional)</label>
+            <div class="input-field icon-input date-wrapper active">
+                <i class="fa-regular fa-calendar"></i>
+                <span class="date-placeholder">Pick a date</span>
+                <input id="date-input" type="date">
+            </div>
+
+            <label class="form-label">Media (Optional)</label>
+            <div class="input-field icon-input file-wrapper">
+                <i class="fa-regular fa-image"></i>
+                <span class="file-placeholder">Upload media</span>
+                <input id="file-input" type="file">
+            </div>
+
+            <div class="popup-buttons">
+                <button type="button" id="cancel-create" class="cancel-btn">Cancel</button>
+                <button type="submit" class="submit-btn blue-btn">Save as Draft</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
