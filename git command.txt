@@ -1,6 +1,9 @@
  git checkout -b development//checkout main branch and -b create nnew branch
 
-git checkout master
+git checkout master//checkout the branch and move to master branch
+git branch -m new-branch-name//Rename the current branch
+ git branch -d branch-name//delete the branch
+ git branch//to check branches
 
  git push -u origin master
  git push -u origin development 
