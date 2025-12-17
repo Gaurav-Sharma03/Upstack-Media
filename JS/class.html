@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>  
+<head>
+    <title> Class Constructor Example</title>
+</head>
+<body>
+    <h2>Class Constructor Example</h2>
+  
+
+<script>
+    class Student{
+        constructor(name,grade){
+            this.name=name;
+            this.grade=grade;
+        }
+        promote(){
+            this.grade=this.grade +1;
+        
+        }
+        info(){
+            console.log("Name is in Grade ", this.grade,"is=>", this.name);
+        }
+    }
+
+let student1=new Student("Ram",10);
+student1.promote();
+student1.info();
+
+let student2= new Student("Mohan",12);
+student2.promote();
+student2.info();
+
+</script>
+
+</body>
+</html>
